@@ -13,7 +13,7 @@ import (
 type ApiResult struct {
 	StatusCode int         `json:"-"`
 	Message    string      `json:"message"`
-	Details    ApiError    `json:"Details"`
+	Details    ApiError    `json:"details"`
 	RequestId  string      `json:"request_id"`
 	Data       interface{} `json:"data"`
 }

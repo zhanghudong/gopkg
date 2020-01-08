@@ -1,6 +1,7 @@
 package settings
 
 import (
+	"github.com/zhanghudong/gopkg/db"
 	"github.com/zhanghudong/gopkg/logger"
 	"github.com/zhanghudong/gopkg/sms/aliyun"
 	"github.com/zhanghudong/gopkg/storage/oss"
@@ -53,6 +54,14 @@ func ConfInit(options ...string) {
 				panic("sms config  does not set")
 			}
 			err = aliyun.InitAliYunSms(ApplicationConfig.Sms)
+			if err != nil {
+				panic(err)
+			}
+		case Mysql:
+			if ApplicationConfig.Mysql == nil {
+				panic("sms config  does not set")
+			}
+			err = db.InitMysql(ApplicationConfig.Mysql)
 			if err != nil {
 				panic(err)
 			}

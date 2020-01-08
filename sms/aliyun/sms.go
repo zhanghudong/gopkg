@@ -13,10 +13,10 @@ type SmsConfig struct {
 	SignName     string `yaml:"sign-name"`
 }
 
-var _alySms *SmsConfig
+var alySms *SmsConfig
 
 func InitAliYunSms(config *SmsConfig) error {
-	_alySms = &SmsConfig{
+	alySms = &SmsConfig{
 		AccessKey:    config.AccessKey,
 		AccessSecret: config.AccessSecret,
 		SignName:     config.SignName,
@@ -42,7 +42,7 @@ type SMSCode struct {
 }
 
 func SendSMSCode(phone, code, templateCode string) (*SMSResponse, error) {
-	client, err := sdk.NewClientWithAccessKey("default", _alySms.AccessKey, _alySms.AccessSecret)
+	client, err := sdk.NewClientWithAccessKey("default", alySms.AccessKey, alySms.AccessSecret)
 	if err != nil {
 		logger.Sugar.Error(err)
 		return nil, err
@@ -55,7 +55,7 @@ func SendSMSCode(phone, code, templateCode string) (*SMSResponse, error) {
 	request.ApiName = "SendSms"
 	request.QueryParams["PhoneNumbers"] = phone
 	request.QueryParams["TemplateCode"] = templateCode
-	request.QueryParams["SignName"] = _alySms.SignName
+	request.QueryParams["SignName"] = alySms.SignName
 	request.QueryParams["TemplateParam"] = "{\"code\":" + code + "}"
 	response, err := client.ProcessCommonRequest(request)
 	if err != nil {
@@ -73,7 +73,7 @@ func SendSMSCode(phone, code, templateCode string) (*SMSResponse, error) {
 }
 
 func SendSMSINTCode(phone, code, templateCode string) (*SMSResponse, error) {
-	client, err := sdk.NewClientWithAccessKey("default", _alySms.AccessKey, _alySms.AccessSecret)
+	client, err := sdk.NewClientWithAccessKey("default", alySms.AccessKey, alySms.AccessSecret)
 	if err != nil {
 		logger.Sugar.Error(err)
 		return nil, err
@@ -86,7 +86,7 @@ func SendSMSINTCode(phone, code, templateCode string) (*SMSResponse, error) {
 	request.ApiName = "SendSms"
 	request.QueryParams["PhoneNumbers"] = phone
 	request.QueryParams["TemplateCode"] = templateCode
-	request.QueryParams["SignName"] = _alySms.SignName
+	request.QueryParams["SignName"] = alySms.SignName
 	request.QueryParams["TemplateParam"] = "{\"code\":" + code + "}"
 	response, err := client.ProcessCommonRequest(request)
 	if err != nil {

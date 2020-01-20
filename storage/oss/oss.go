@@ -5,7 +5,7 @@ import (
 	"github.com/zhanghudong/gopkg/logger"
 )
 
-type OssConfig struct {
+type Config struct {
 	Endpoint        string `yaml:"endpoint"`
 	AccessKeyId     string `yaml:"access-key-id"`
 	AccessKeySecret string `yaml:"access-key-secret"`
@@ -18,7 +18,7 @@ type alyOss struct {
 
 var _alyOss *alyOss
 
-func InitOssClient(config *OssConfig) error {
+func InitOssClient(config *Config) error {
 	// 创建OSSClient实例
 	client, err := oss.New(config.Endpoint, config.AccessKeyId, config.AccessKeySecret)
 	if err != nil {

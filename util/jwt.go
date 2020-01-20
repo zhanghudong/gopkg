@@ -15,7 +15,7 @@ type Claims struct {
 //生成token
 func GenerateToken(username, password string) (token string, err error) {
 	nowTime := time.Now()
-	expireTime := nowTime.Add(settings.ApplicationConfig.App.Expiration)
+	expireTime := nowTime.Add(settings.ApplicationConfig.App.Expiration * time.Second)
 	claims := Claims{
 		username,
 		password,

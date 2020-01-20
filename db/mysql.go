@@ -5,7 +5,7 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
-var BD *gorm.DB
+var DB *gorm.DB
 
 type MysqlConfig struct {
 	Type        string `yaml:"type"`
@@ -17,7 +17,7 @@ type MysqlConfig struct {
 }
 
 func InitMysql(conf *MysqlConfig) (err error) {
-	BD, err = gorm.Open(conf.Type, conf.Master)
+	DB, err = gorm.Open(conf.Type, conf.Master)
 	if err != nil {
 		return
 	}
@@ -25,9 +25,9 @@ func InitMysql(conf *MysqlConfig) (err error) {
 		return conf.TablePrefix + defaultTableName
 	}
 
-	BD.LogMode(conf.LogMode)
-	BD.SingularTable(true)
-	BD.DB().SetMaxIdleConns(10)
-	BD.DB().SetMaxOpenConns(100)
+	DB.LogMode(conf.LogMode)
+	DB.SingularTable(true)
+	DB.DB().SetMaxIdleConns(10)
+	DB.DB().SetMaxOpenConns(100)
 	return
 }

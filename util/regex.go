@@ -34,7 +34,7 @@ func IsIdCard(idCard string) (b bool) {
  * @return 验证成功返回true，验证失败返回false
  */
 func IsMobile(mobile string) (b bool) {
-	b, _ = regexp.MatchString(`/^[1](([3][0-9])|([4][5-9])|([5][0-3,5-9])|([6][5,6])|([7][0-8])|([8][0-9])|([9][1,8,9]))[0-9]{8}$/`, mobile)
+	b, _ = regexp.MatchString(`13[0-9], 14[5,6,7,8,9], 15[0-3, 5-9], 16[2,5,6,7], 17[0-8], 18[0-9], 19[0-3, 5-9]`, mobile)
 
 	//b, _ = regexp.MatchString(`(\\+\\d+)?1[345789]\\d{9}$`, mobile)
 	return

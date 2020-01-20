@@ -5,12 +5,14 @@ import (
 	"github.com/aliyun/alibaba-cloud-sdk-go/sdk"
 	"github.com/aliyun/alibaba-cloud-sdk-go/sdk/requests"
 	"github.com/zhanghudong/gopkg/logger"
+	"time"
 )
 
 type SmsConfig struct {
-	AccessKey    string `yaml:"access-key"`
-	AccessSecret string `yaml:"access-secret"`
-	SignName     string `yaml:"sign-name"`
+	AccessKey    string        `yaml:"access-key"`
+	AccessSecret string        `yaml:"access-secret"`
+	SignName     string        `yaml:"sign-name"`
+	Expiration   time.Duration `yaml:"expiration"`
 }
 
 var alySms *SmsConfig

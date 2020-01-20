@@ -17,7 +17,7 @@ var ApplicationConfig *Config
 type Config struct {
 	App    App               `yaml:"app"`
 	Server Server            `yaml:"server"`
-	Oss    *oss.OssConfig    `yaml:"oss"`
+	Oss    *oss.Config       `yaml:"oss"`
 	Mysql  *db.MysqlConfig   `yaml:"mysql"`
 	Sms    *aliyun.SmsConfig `yaml:"sms"`
 }
@@ -30,6 +30,7 @@ type App struct {
 	ApiVersion   string        `yaml:"api-version"`
 	LogsSavePath string        `yaml:"logs-save-path"`
 	OssUrlPrefix string        `yaml:"oss-url-prefix"`
+	PwdSalt      string        `yaml:"pwd-salt"` //用户密码盐值
 }
 
 type Server struct {

@@ -10,7 +10,7 @@ require (
 	github.com/fastly/go-utils v0.0.0-20180712184237-d95a45783239 // indirect
 	github.com/gin-gonic/gin v1.6.2
 	github.com/go-redis/redis v6.15.7+incompatible
-	github.com/gofrs/uuid v3.2.0+incompatible // indirect
+	github.com/google/uuid v1.1.1
 	github.com/jehiah/go-strftime v0.0.0-20171201141054-1d33003b3869 // indirect
 	github.com/jinzhu/gorm v1.9.12
 	github.com/jonboulle/clockwork v0.1.0 // indirect

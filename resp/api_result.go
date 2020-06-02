@@ -44,6 +44,13 @@ func BadRequestDetails(apiErr *ApiError) *ApiResult {
 		Details:    apiErr,
 	}
 }
+func OKRequestDetails(apiErr *ApiError) *ApiResult {
+	return &ApiResult{
+		StatusCode: http.StatusOK,
+		Message:    http.StatusText(http.StatusOK),
+		Details:    apiErr,
+	}
+}
 
 func BadRequestApiErr(code int64, msg string) *ApiResult {
 	return &ApiResult{
@@ -55,6 +62,7 @@ func BadRequestApiErr(code int64, msg string) *ApiResult {
 		},
 	}
 }
+
 func OKRequestApiErr(code int64, msg string) *ApiResult {
 	return &ApiResult{
 		StatusCode: http.StatusOK,

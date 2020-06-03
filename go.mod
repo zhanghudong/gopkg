@@ -19,7 +19,7 @@ require (
 	github.com/mojocn/base64Captcha v1.3.1
 	github.com/onsi/ginkgo v1.12.0 // indirect
 	github.com/onsi/gomega v1.9.0 // indirect
-	github.com/satori/go.uuid v1.2.0
+	github.com/satori/go.uuid v1.2.0 // indirect
 	github.com/tebeka/strftime v0.1.4 // indirect
 	go.uber.org/zap v1.14.1
 	golang.org/x/crypto v0.0.0-20200406173513-056763e48d71
